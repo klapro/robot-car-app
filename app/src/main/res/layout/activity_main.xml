@@ -1,34 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.RobotCarApp.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        android:layout_height="match_parent">
+        <com.alexvas.rtsp.widget.RtspSurfaceView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.RobotCarApp.PopupOverlay" />
+            android:layout_height="match_parent"
+            android:id="@+id/svVideo" />
+    </LinearLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:justifyContent="center"
+            app:alignItems="center"
+            >
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Try Connect Camera"
+                android:id="@+id/tryCameraBtn">
+            </Button>
+        </com.google.android.flexbox.FlexboxLayout>
+    </LinearLayout>
 
-    <include layout="@layout/content_main" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top">
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:justifyContent="flex_end"
+            android:layout_marginTop="16dp"
+            >
+            <ImageButton
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_gear_icon_svg"
+                tools:ignore="SpeakableTextPresentCheck">
+            </ImageButton>
+        </com.google.android.flexbox.FlexboxLayout>
+    </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:orientation="horizontal"
+            app:justifyContent="space_between"
+            android:layout_marginBottom="16dp"
+            >
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp">
+
+                <ImageButton
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_rotating_arrow_reverse"
+                    tools:ignore="SpeakableTextPresentCheck">
+
+                </ImageButton>
+
+                <ImageButton
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_rotating_arrow"
+                    tools:ignore="SpeakableTextPresentCheck">
+
+                </ImageButton>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginEnd="16dp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="Start"
+                    android:layout_marginStart="5dp">
+
+                </Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="Stop"
+                    android:layout_marginLeft="15dp">
+
+                </Button>
+            </LinearLayout>
+        </com.google.android.flexbox.FlexboxLayout>
+    </LinearLayout>
+
+</FrameLayout>
